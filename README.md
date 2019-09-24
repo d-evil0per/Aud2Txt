@@ -2,7 +2,7 @@
 Audio to text using Google Speech Recognition API
 
 # Note
-You need to Create API KEY For google Speech Recogination COULD API From https://console.developers.google.com and download the json credentials into your project folder and rename it as api-key.json 
+You need to Create API KEY For google Speech Recogination Cloud API From https://console.developers.google.com and download the json credentials into your project folder and rename it as api-key.json 
 
 # Requirements:
 	  1.google-api-python-client==1.6.4
