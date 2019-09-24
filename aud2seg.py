@@ -54,8 +54,8 @@ def banner():
 banner()
 
 recur(directory)
-print("Launching Aud2txt To Transcribe the audio files.")
-print("Please Wait....")
-time.sleep(2)
-os.system("python3 aud2txt.py wavfiles")
+# print("Launching Aud2txt To Transcribe the audio files.")
+# print("Please Wait....")
+# time.sleep(2)
+# os.system("python3 aud2txt.py wavfiles")
 

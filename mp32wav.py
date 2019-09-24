@@ -71,9 +71,9 @@ if os.path.exists("wavfiles"):
 else:
 	system("mkdir wavfiles")
 recur(directory)
-print("Launching Aud2Seg for Segmentation of audio files.")
-print("Please Wait....")
-time.sleep(2)
-system("python3 aud2seg.py wavfiles")
+# print("Launching Aud2Seg for Segmentation of audio files.")
+# print("Please Wait....")
+# time.sleep(2)
+# system("python3 aud2seg.py wavfiles")
 
 
