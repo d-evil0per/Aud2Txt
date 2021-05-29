@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:15,000
+ to kind of explain with Linux is so you have to explain what an operating system is anything about an operating system is that you never ever supposed to see it because nobody really uses an operating system people use
+
+2
+00:00:15,000 --> 00:00:30,000
+ programs on their computer and the only mission in life of an operating system is to help those programs run
+
+3
+00:00:30,000 --> 00:00:45,000
+ resources of war or ask for certain file into the disc or ask for the programs to connect them to the outside world and then they offering some kind of steps in ice to make it easy for people to write programs
+
+4
+00:00:45,000 --> 00:01:00,000
+ None
+

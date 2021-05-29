@@ -1,31 +1,24 @@
-# from pydub import AudioSegment
-# sound = AudioSegment.from_mp3("sos1.mp3")
-# sound.export("sos1.wav", format="wav")
 #!/usr/bin/python
-from PIL import Image
+
 from pydub import AudioSegment
 import os
 import sys,time
 from pathlib import Path
-import imghdr
-directory = sys.argv[1]
 from os import system
 
+directory = r"C:\Users\win 10\Documents\GitHub\Aud2Txt\audiosample\video"
+
 def convert(file,folder,count):
-	# print(folder)
-	# pass
 	file_path=str(file)
 	folder_path=str(folder)
 	file_details,file_ext=file_path.split('.')
-	# file_details=file_details.replace("-","")
 	file_details=file_details.replace(" ","")
-	# print(file_details)
-	file_name=file_details.split("/")
-	folder_path=folder_path.split("/")
-	system("mkdir wavfiles/"+str(folder_path[-1]))
-	# print(file_name[-1])
-	new_file="wavfiles/"+folder_path[-1]+"/"+file_name[-1]+".wav"
-
+	file_name=file_details.replace("\\","/").split("/")
+	folder_path=folder_path.replace("\\","/").split("/")
+	wav_folder="wavfiles\\"+str(file_name[-1])
+	print(wav_folder)
+	system("mkdir "+wav_folder)
+	new_file="wavfiles/"+str(file_name[-1])+"/"+file_name[-1]+".wav"
 	sound = AudioSegment.from_mp3(file)
 	sound.export(new_file, format="wav")
 	print("conversion Complete... ")
@@ -37,7 +30,6 @@ def recur(folder_path):
 	p=Path(folder_path)
 	dirs=p.glob("*")
 	i=0
-	# print(dirs)
 	for folder in dirs:
 		
 		if folder.is_dir():
@@ -71,9 +63,5 @@ if os.path.exists("wavfiles"):
 else:
 	system("mkdir wavfiles")
 recur(directory)
-# print("Launching Aud2Seg for Segmentation of audio files.")
-# print("Please Wait....")
-# time.sleep(2)
-# system("python3 aud2seg.py wavfiles")
 
 

@@ -1,20 +1,17 @@
-# from pydub import AudioSegment
-# sound = AudioSegment.from_mp3("sos1.mp3")
-# sound.export("sos1.wav", format="wav")
 #!/usr/bin/python
-from PIL import Image
-from pydub import AudioSegment
 import os
-import sys,time
 from pathlib import Path
-import imghdr
-directory = sys.argv[1]
+directory = r"C:\Users\win 10\Documents\GitHub\Aud2Txt\wavfiles\operating-systems"
 
 
-def segment(file,folder,count):
-	os.system("mkdir "+str(folder)+"/parts")
-	parts=str(folder)+"/parts/out%09d.wav"
-	os.system("ffmpeg -i "+str(file)+" -f segment -segment_time 30 -c copy "+parts+"> /dev/null 2>&1")
+def segment(file,folder,org_path):
+	
+	folder=str(folder)+"\\parts"
+	if not os.path.exists(folder):
+		os.system("mkdir "+folder)
+	parts=str(org_path)+"\\parts\\ut%09d.wav"
+	print("ffmpeg -i \""+str(file)+"\" -f segment -segment_time 15 -ac 1 -c copy \""+parts+"\"")
+	os.system("ffmpeg -i \""+str(file)+"\" -f segment -segment_time 15 -ac 1 -c copy \""+parts+"\"")
 	print(str(file)+" segmentation Done...")
 	
 	
@@ -26,16 +23,17 @@ def recur(folder_path):
 	dirs=p.glob("*")
 	i=0
 	for folder in dirs:
-		# print(folder)
 		if folder.is_dir():
+			
 			print("Processing Folder- "+str(folder))
 			recur(folder)
 		else:
 			print("Segmenting File- "+str(folder))
 			i+=1
-			segment(folder,folder_path,i)
+			new_folder_path=str(folder_path).split("\\")[-2]+"\\"+str(folder_path).split("\\")[-1]
+			# print()
+			segment(folder,new_folder_path,folder_path)
 def banner():
-	os.system('clear')
 	print("                                 ,,                                        ")
 	print('      db                       `7MM            .M"""bgd                    ')
 	print('     ;MM:                        MM           ,MI    "Y                    ')
@@ -54,8 +52,5 @@ def banner():
 banner()
 
 recur(directory)
-# print("Launching Aud2txt To Transcribe the audio files.")
-# print("Please Wait....")
-# time.sleep(2)
-# os.system("python3 aud2txt.py wavfiles")
+
 
