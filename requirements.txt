@@ -31,4 +31,4 @@ tqdm==4.61.0
 typing-extensions==3.10.0.0
 typing-inspect==0.6.0
 urllib3==1.26.5
-Werkzeug==2.0.0
+Werkzeug==2.2.3
